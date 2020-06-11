@@ -3,7 +3,7 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('url').value
-    validateURL(formText)
+    Client.validateURL(formText)
 
     console.log("::: Form Submitted :::")
     fetch('http://localhost:8080/sentiment-analysis', {
@@ -11,11 +11,15 @@ function handleSubmit(event) {
         headers: {
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ url })
+        body: JSON.stringify({ url: formText })
     })
     .then(res => res.json())
     .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
+        document.getElementById('polarity').innerHTML = res.polarity
+        document.getElementById('polarity_confidence').innerHTML = res.polarity_confidence;
+        document.getElementById('subjectivity').innerHTML = res.subjectivity;
+        document.getElementById('subjectivity_confidence').innerHTML = res.subjectivity_confidence;
+        document.getElementById('nlp-text').innerHTML = res.text;
     })
 }
 
