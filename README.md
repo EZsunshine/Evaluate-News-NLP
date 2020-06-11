@@ -72,6 +72,8 @@ API_KEY=**************************
 const dotenv = require('dotenv');
 dotenv.config();
 ```
+- [ ] Install dotenv: npm i dotenv
+
 - [ ] Reference variables you created in the .env file by putting ```process.env``` in front of it, an example might look like this:
 ```
 console.log(`Your API key is ${process.env.API_KEY}`);
