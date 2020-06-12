@@ -114,4 +114,6 @@ A great step to take with your finished project would be to deploy it! Unfortuna
 npm i
 npm run build-prod
 npm start
+
+npm test // For jest unit testing
 ```
